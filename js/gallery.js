@@ -93,7 +93,13 @@ listGallery.addEventListener("click", onGalleryLinkClick);
 function onGalleryLinkClick(event) {
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
-  basicLightbox.show((event.target.src = event.target.dataset.source));
+  basicLightbox
+    .create(
+      `
+    <img src="${event.target.dataset.source}">
+`
+    )
+    .show();
 }
 
 // ============================== ДОДАВАННЯ КЛАСІВ
